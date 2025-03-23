@@ -11,6 +11,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       appBar: AppBar(
         backgroundColor: Colors.white,
         centerTitle: true,
@@ -26,7 +27,7 @@ class _HomeState extends State<Home> {
           padding: const EdgeInsets.all(10.0),
           child: CircleAvatar(
             backgroundImage: NetworkImage(
-                "https://cdn-icons-png.flaticon.com/512/4122/4122901.png"),
+                "https://imgcdn.stablediffusionweb.com/2024/12/24/f5b4d099-5591-4656-a0fe-436aa1a15709.jpg"),
           ),
         ),
         actions: [
