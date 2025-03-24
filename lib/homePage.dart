@@ -11,7 +11,6 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       appBar: AppBar(
         backgroundColor: Colors.white,
         centerTitle: true,
@@ -41,7 +40,7 @@ class _HomeState extends State<Home> {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            // Search Bar
+            // 🔹 Search Bar
             Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(30),
@@ -78,7 +77,13 @@ class _HomeState extends State<Home> {
 
             SizedBox(height: 20), // Spacing
 
-            // Category Cards
+            // 🔹 Surf Trips Card
+            TravelCard(),
+            
+
+            SizedBox(height: 20), // Spacing
+
+            // 🔹 Category Cards
             Expanded(
               child: GridView.count(
                 crossAxisCount: 3, // 3 items per row
@@ -105,7 +110,83 @@ class _HomeState extends State<Home> {
   }
 }
 
-// Category Card Widget
+// 🔹 Surf Trips Card Widget
+class TravelCard extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(20),
+      child: Stack(
+        children: [
+          // Background Image
+          Image.network(
+            "https://ychef.files.bbci.co.uk/1280x720/p0b7n6dm.jpg",
+            height: 200,
+            width: double.infinity,
+            fit: BoxFit.cover,
+          ),
+
+          // Dark Gradient Overlay
+          Container(
+            height: 200,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.bottomCenter,
+                end: Alignment.center,
+                colors: [
+                  Colors.black.withOpacity(0.5),
+                  Colors.transparent,
+                ],
+              ),
+            ),
+          ),
+
+          // Text & Button
+          Positioned(
+            left: 20,
+            bottom: 20,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Sigiriya Rock",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: 4),
+                Text(
+                  "Travelers share their favorite destinations",
+                  style: TextStyle(
+                    color: Colors.white70,
+                    fontSize: 14,
+                  ),
+                ),
+                SizedBox(height: 12),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.lightGreenAccent,
+                    foregroundColor: Colors.black,
+                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                  ),
+                  onPressed: () {},
+                  child: Text("Explore Now"),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+// 🔹 Category Card Widget
 class CategoryCard extends StatelessWidget {
   final IconData icon;
   final String title;

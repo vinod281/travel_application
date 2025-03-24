@@ -6,6 +6,7 @@ void main() {
     initialRoute: '/',
     routes: {
       '/': (context) => Home(),
+      
     },
   ));
 }
