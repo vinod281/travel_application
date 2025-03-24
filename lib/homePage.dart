@@ -100,6 +100,7 @@ class _HomeState extends State<Home> {
                       icon: Icons.directions_car,
                       title: "Cars",
                       color: Colors.orange),
+                 
                 ],
               ),
             ),
@@ -120,7 +121,7 @@ class TravelCard extends StatelessWidget {
         children: [
           // Background Image
           Image.network(
-            "https://ychef.files.bbci.co.uk/1280x720/p0b7n6dm.jpg",
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Sigiriya_%28141688197%29.jpeg/640px-Sigiriya_%28141688197%29.jpeg",
             height: 200,
             width: double.infinity,
             fit: BoxFit.cover,
