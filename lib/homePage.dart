@@ -8,6 +8,15 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  int _selectedIndex = 0; // Track the selected tab
+
+  // Function to handle navigation bar item taps
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -79,16 +88,17 @@ class _HomeState extends State<Home> {
 
             // 🔹 Surf Trips Card
             TravelCard(),
-            
 
             SizedBox(height: 20), // Spacing
 
             // 🔹 Category Cards
-            Expanded(
+            SizedBox(
+              height: 120, // Set a fixed height for the GridView
               child: GridView.count(
                 crossAxisCount: 3, // 3 items per row
                 crossAxisSpacing: 10,
                 mainAxisSpacing: 10,
+                
                 children: [
                   CategoryCard(
                       icon: Icons.hotel, title: "Hotels", color: Colors.blue),
@@ -100,12 +110,99 @@ class _HomeState extends State<Home> {
                       icon: Icons.directions_car,
                       title: "Cars",
                       color: Colors.orange),
-                 
                 ],
               ),
             ),
+
+            SizedBox(height: 20), // Spacing
+
+            // 🔹 Popular Destinations
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Popular Destinations",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text(
+                  "View All",
+                  style: TextStyle(
+                    color: Colors.blue,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+
+            // Spacing
+
+            Column(
+              children: [
+                // Destination 1
+                ListTile(
+                  leading: CircleAvatar(
+                    backgroundImage: NetworkImage(
+                        "https://www.storiesbysoumya.com/wp-content/uploads/2021/11/sigiriya-rock-fortress.jpg"),
+                  ),
+                  title: Text("Sigiriya Rock"),
+                  subtitle: Text("Sri Lanka"),
+                  trailing: Icon(Icons.favorite_border),
+                ),
+
+                // Destination 2
+                ListTile(
+                  leading: CircleAvatar(
+                    backgroundImage: NetworkImage(
+                        "https://www.storiesbysoumya.com/wp-content/uploads/2021/11/sigiriya-rock-fortress.jpg"),
+                  ),
+                  title: Text("Sigiriya Rock"),
+                  subtitle: Text("Sri Lanka"),
+                  trailing: Icon(Icons.favorite_border),
+                ),
+
+                // Destination 3
+                ListTile(
+                  leading: CircleAvatar(
+                    backgroundImage: NetworkImage(
+                        "https://www.storiesbysoumya.com/wp-content/uploads/2021/11/sigiriya-rock-fortress.jpg"),
+                  ),
+                  title: Text("Sigiriya Rock"),
+                  subtitle: Text("Sri Lanka"),
+                  trailing: Icon(Icons.favorite_border),
+                ),
+              ],
+            )
           ],
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedIndex, // Highlight the selected item
+        onTap: _onItemTapped, // Handle taps
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+            
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.search),
+            label: 'Search',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.favorite),
+            label: 'Favorites',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profile',
+          ),
+        ],
+        selectedItemColor: const Color.fromARGB(255, 23, 195, 66), // Highlight color
+        unselectedItemColor: Colors.grey, // Default color
+        showUnselectedLabels: true, // Show labels for unselected items
       ),
     );
   }
@@ -121,7 +218,7 @@ class TravelCard extends StatelessWidget {
         children: [
           // Background Image
           Image.network(
-            "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Sigiriya_%28141688197%29.jpeg/640px-Sigiriya_%28141688197%29.jpeg",
+            "https://www.storiesbysoumya.com/wp-content/uploads/2021/11/sigiriya-rock-fortress.jpg",
             height: 200,
             width: double.infinity,
             fit: BoxFit.cover,
@@ -201,11 +298,11 @@ class CategoryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      shape: RoundedRectangleBorder(
+    return Container(
+      decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
+        color: color.withOpacity(0.1), // Transparent background
       ),
-      elevation: 2,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -216,7 +313,10 @@ class CategoryCard extends StatelessWidget {
           SizedBox(height: 10),
           Text(
             title,
-            style: TextStyle(fontWeight: FontWeight.bold),
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+            ),
           ),
           Text(
             "Deals",
