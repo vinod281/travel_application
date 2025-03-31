@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:travel_app/Models/travelCardModel.dart';
 import 'package:travel_app/Widgets/TravelCard.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
 class Home1 extends StatefulWidget {
   const Home1({super.key});
@@ -72,7 +73,7 @@ class _Home1State extends State<Home1> {
           ),
         ],
         selectedItemColor:
-            const Color.fromARGB(255, 23, 195, 66), // Highlight color
+            const Color.fromARGB(255, 14, 14, 14), // Highlight color
         unselectedItemColor: Colors.grey, // Default color
         showUnselectedLabels: true, // Show labels for unselected items
       ),
@@ -85,31 +86,30 @@ class _Home1State extends State<Home1> {
         Column(
           children: [
             _searchBar(),
-            _cards(),
+            _carousel(),
+            // _cards(),
+            _categoryCard(),
             Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: SizedBox(
-                height: 150, // Set a fixed height for the GridView
-                child: GridView.count(
-                  crossAxisCount: 3, // 3 items per row
-                  crossAxisSpacing: 10,
-                  mainAxisSpacing: 10,
-              
-                  children: [
-                    CategoryCard(
-                        icon: Icons.hotel, 
-                        title: "Hotels", 
-                        color: Colors.blue),
-                    CategoryCard(
-                        icon: Icons.people,
-                        title: "Friends",
-                        color: Colors.green),
-                    CategoryCard(
-                        icon: Icons.directions_car,
-                        title: "Cars",
-                        color: Colors.orange),
-                  ],
-                ),
+              padding: const EdgeInsets.only(left: 20, right: 20, top: 0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Popular Destinations",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: const Color.fromARGB(255, 85, 85, 85)
+                    ),
+                  ),
+                  Text(
+                    "View All",
+                    style: TextStyle(
+                      color: Colors.blue,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
               ),
             ),
           ],
@@ -165,6 +165,64 @@ class _Home1State extends State<Home1> {
                 "https://youmeunderthepalmtree.com/wp-content/uploads/2021/06/20190926_080608-1024x768.jpg",
             description: "Awesome Things to do in Unawatuna"));
   }
+
+  _categoryCard() {
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: SizedBox(
+        height: 100,
+        child: GridView.count(
+          crossAxisCount: 4,
+          crossAxisSpacing: 10,
+          mainAxisSpacing: 10,
+          children: [
+            CategoryCard(
+                icon: Icons.hotel, title: "Hotels", color: Colors.blueAccent),
+            CategoryCard(
+                icon: Icons.directions_car,
+                title: "Vehicles",
+                color: Colors.orangeAccent),
+            CategoryCard(icon: Icons.map, title: "Guides", color: Colors.cyan),
+            CategoryCard(
+                icon: Icons.people, title: "People", color: Colors.green),
+          ],
+        ),
+      ),
+    );
+  }
+
+  _carousel() {
+    return Center(
+      child: Column(
+        children: [
+          CarouselSlider(
+            items: [
+              TravelCard(tCard: TCard(title: "Sigiriya", imageURL: "https://youmeunderthepalmtree.com/wp-content/uploads/2021/06/20190926_080608-1024x768.jpg", description: "Sigiriya Rock (1785)")),
+              TravelCard(tCard: TCard(title: "Sigiriya", imageURL: "https://beyondescapes.com/uploads/excursions/BW4YPnXzX3u1.jpg", description: "Sigiriya Rock (1785)")),
+              TravelCard(tCard: TCard(title: "Sigiriya", imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQm13ec-g2lYYJ54zzkAZKgMCq8qVMUiR0ZNg&s", description: "Sigiriya Rock (1785)")),
+            ],
+            options: CarouselOptions(
+              
+              height: 200,
+              aspectRatio: 16 / 9,
+              viewportFraction: 1.0,
+              initialPage: 0,
+              enableInfiniteScroll: true,
+              reverse: false,
+              autoPlay: true,
+              autoPlayInterval: Duration(seconds: 3),
+              autoPlayAnimationDuration: Duration(milliseconds: 800),
+              autoPlayCurve: Curves.fastOutSlowIn,
+              enlargeCenterPage: true,
+              scrollDirection: Axis.horizontal,
+              
+            ),
+          ),
+          
+        ],
+      ),
+    );
+  }
 }
 
 class CategoryCard extends StatelessWidget {
@@ -197,12 +255,8 @@ class CategoryCard extends StatelessWidget {
             title,
             style: TextStyle(
               fontWeight: FontWeight.bold,
-              color: Colors.black,
+              color: Colors.grey,
             ),
-          ),
-          Text(
-            "Deals",
-            style: TextStyle(color: Colors.grey),
           ),
         ],
       ),
