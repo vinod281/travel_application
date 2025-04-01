@@ -210,6 +210,8 @@ class _HomeState extends State<Home> {
 
 // 🔹 Surf Trips Card Widget
 class TravelCard extends StatelessWidget {
+  const TravelCard({super.key});
+
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
@@ -290,7 +292,7 @@ class CategoryCard extends StatelessWidget {
   final String title;
   final Color color;
 
-  const CategoryCard({
+  const CategoryCard({super.key, 
     required this.icon,
     required this.title,
     required this.color,

@@ -6,9 +6,11 @@ import 'package:travel_app/ViewPage.dart';
 
 import 'package:travel_app/homePage.dart';
 
+import 'package:travel_app/payment_page.dart';
+
 void main() {
   runApp(MaterialApp(
-    initialRoute: '/home',
+    initialRoute: '/paymentPage',
     routes: {
       '/': (context) => Home(),
 
@@ -16,6 +18,10 @@ void main() {
       
 
       '/viewPage':(context) => ViewPage(),
+
+      '/paymentPage':(context) => PaymentPage(),
+
+
 
     },
   ));
