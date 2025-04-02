@@ -81,25 +81,24 @@ class _Home1State extends State<Home1> {
   }
 
   _body() {
-    return Stack(
-      children: [
-        Column(
+  return Stack(
+    children: [
+      SingleChildScrollView(
+        child: Column(
           children: [
             _searchBar(),
-            _carousel(),
-            // _cards(),
-            _categoryCard(),
+
             Padding(
-              padding: const EdgeInsets.only(left: 20, right: 20, top: 0),
+              padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "Popular Destinations",
+                    "Popular Events",
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
-                      color: const Color.fromARGB(255, 85, 85, 85)
+                      color: Color.fromARGB(255, 85, 85, 85),
                     ),
                   ),
                   Text(
@@ -112,12 +111,55 @@ class _Home1State extends State<Home1> {
                 ],
               ),
             ),
-          ],
-        )
-      ],
-    );
-  }
 
+            _carousel(),
+            _categoryCard(),
+
+            Padding(
+              padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Destination Plans",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromARGB(255, 85, 85, 85),
+                    ),
+                  ),
+                  Text(
+                    "View All",
+                    style: TextStyle(
+                      color: Colors.blue,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            // GridView inside a Column
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: GridView.count(
+                crossAxisCount: 1,
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(), // Prevents nested scrolling
+                children: [
+                  
+                  _cards(),
+                  _cards(),
+                  _cards(),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    ],
+  );
+}
   _searchBar() {
     return Padding(
       padding: const EdgeInsets.all(10.0),
@@ -162,7 +204,7 @@ class _Home1State extends State<Home1> {
         tCard: TCard(
             title: "Unawatuna",
             imageURL:
-                "https://youmeunderthepalmtree.com/wp-content/uploads/2021/06/20190926_080608-1024x768.jpg",
+                "https://www.ateasehotel.com/wp-content/uploads/2022/03/Round-tour-sri-lanka-at-ease--1024x576.png",
             description: "Awesome Things to do in Unawatuna"));
   }
 
@@ -197,13 +239,33 @@ class _Home1State extends State<Home1> {
         children: [
           CarouselSlider(
             items: [
-              TravelCard(tCard: TCard(title: "Sigiriya", imageURL: "https://youmeunderthepalmtree.com/wp-content/uploads/2021/06/20190926_080608-1024x768.jpg", description: "Sigiriya Rock (1785)")),
-              TravelCard(tCard: TCard(title: "Sigiriya", imageURL: "https://beyondescapes.com/uploads/excursions/BW4YPnXzX3u1.jpg", description: "Sigiriya Rock (1785)")),
-              TravelCard(tCard: TCard(title: "Sigiriya", imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQm13ec-g2lYYJ54zzkAZKgMCq8qVMUiR0ZNg&s", description: "Sigiriya Rock (1785)")),
+              TravelCard(
+                  tCard: TCard(
+                      title: "Sigiriya",
+                      imageURL:
+                          "https://youmeunderthepalmtree.com/wp-content/uploads/2021/06/20190926_080608-1024x768.jpg",
+                      description: "Sigiriya Rock (1785)")),
+              TravelCard(
+                  tCard: TCard(
+                      title: "Sigiriya",
+                      imageURL:
+                          "https://beyondescapes.com/uploads/excursions/BW4YPnXzX3u1.jpg",
+                      description: "Sigiriya Rock (1785)")),
+              TravelCard(
+                  tCard: TCard(
+                      title: "Sigiriya",
+                      imageURL:
+                          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQm13ec-g2lYYJ54zzkAZKgMCq8qVMUiR0ZNg&s",
+                      description: "Sigiriya Rock (1785)")),
+              TravelCard(
+                  tCard: TCard(
+                      title: "Sigiriya",
+                      imageURL:
+                          "https://www.distinctdestinations.in/DistinctDestinationsBackEndImg/BlogImage/kandy-perahera-a-many-splendoured-spectacle-L-distinctdestinations.jpg",
+                      description: "Sigiriya Rock (1785)")),
             ],
             options: CarouselOptions(
-              
-              height: 200,
+              height: 220,
               aspectRatio: 16 / 9,
               viewportFraction: 1.0,
               initialPage: 0,
@@ -214,11 +276,9 @@ class _Home1State extends State<Home1> {
               autoPlayAnimationDuration: Duration(milliseconds: 800),
               autoPlayCurve: Curves.fastOutSlowIn,
               enlargeCenterPage: true,
-              scrollDirection: Axis.horizontal,
-              
+              scrollDirection: Axis.vertical,
             ),
           ),
-          
         ],
       ),
     );
