@@ -79,7 +79,7 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                   border: InputBorder.none,
-                  contentPadding: EdgeInsets.symmetric(vertical: 15),
+              contentPadding: EdgeInsets.symmetric(vertical: 15),
                 ),
               ),
             ),

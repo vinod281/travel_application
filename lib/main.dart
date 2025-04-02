@@ -6,6 +6,8 @@ import 'package:travel_app/ViewPage.dart';
 
 import 'package:travel_app/homePage.dart';
 
+import 'package:travel_app/search_page.dart';
+
 void main() {
   runApp(MaterialApp(
     initialRoute: '/home',
@@ -16,6 +18,8 @@ void main() {
       
 
       '/viewPage':(context) => ViewPage(),
+
+      '/search': (context) => SearchPage(),
 
     },
   ));

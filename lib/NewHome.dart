@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:travel_app/Models/travelCardModel.dart';
 import 'package:travel_app/Widgets/TravelCard.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:travel_app/search_page.dart';
 
 class Home1 extends StatefulWidget {
   const Home1({super.key});
@@ -13,12 +14,22 @@ class Home1 extends StatefulWidget {
 class _Home1State extends State<Home1> {
   int _selectedIndex = 0; // Track the selected tab
 
+  
+
   // Function to handle navigation bar item taps
   void _onItemTapped(int index) {
+  if (index == 1) { // If Search is tapped
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => SearchPage()), // Navigate to SearchPage
+    );
+  } else {
     setState(() {
       _selectedIndex = index;
     });
   }
+}
+
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +70,11 @@ class _Home1State extends State<Home1> {
             icon: Icon(Icons.home),
             label: 'Home',
           ),
+
+          
           BottomNavigationBarItem(
+            
+
             icon: Icon(Icons.search),
             label: 'Search',
           ),
@@ -152,7 +167,12 @@ class _Home1State extends State<Home1> {
             border: InputBorder.none,
             contentPadding: EdgeInsets.symmetric(vertical: 15),
           ),
-        ),
+        onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => SearchPage()),
+            );
+          },),
       ),
     );
   }
