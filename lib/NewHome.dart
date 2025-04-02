@@ -205,7 +205,11 @@ class _Home1State extends State<Home1> {
             title: "Unawatuna",
             imageURL:
                 "https://www.ateasehotel.com/wp-content/uploads/2022/03/Round-tour-sri-lanka-at-ease--1024x576.png",
-            description: "Awesome Things to do in Unawatuna"));
+            description: "Awesome Things to do in Unawatuna"
+            ),
+        clr: Colors.black,
+            
+            );
   }
 
   _categoryCard() {
@@ -244,25 +248,25 @@ class _Home1State extends State<Home1> {
                       title: "Sigiriya",
                       imageURL:
                           "https://youmeunderthepalmtree.com/wp-content/uploads/2021/06/20190926_080608-1024x768.jpg",
-                      description: "Sigiriya Rock (1785)")),
+                      description: "Sigiriya Rock (1785)"),clr: Colors.white,),
               TravelCard(
                   tCard: TCard(
                       title: "Sigiriya",
                       imageURL:
                           "https://beyondescapes.com/uploads/excursions/BW4YPnXzX3u1.jpg",
-                      description: "Sigiriya Rock (1785)")),
+                      description: "Sigiriya Rock (1785)"),clr: Colors.white,),
               TravelCard(
                   tCard: TCard(
                       title: "Sigiriya",
                       imageURL:
                           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQm13ec-g2lYYJ54zzkAZKgMCq8qVMUiR0ZNg&s",
-                      description: "Sigiriya Rock (1785)")),
+                      description: "Sigiriya Rock (1785)"),clr: Colors.white,),
               TravelCard(
                   tCard: TCard(
                       title: "Sigiriya",
                       imageURL:
                           "https://www.distinctdestinations.in/DistinctDestinationsBackEndImg/BlogImage/kandy-perahera-a-many-splendoured-spectacle-L-distinctdestinations.jpg",
-                      description: "Sigiriya Rock (1785)")),
+                      description: "Sigiriya Rock (1785)"),clr: Colors.white,),
             ],
             options: CarouselOptions(
               height: 220,

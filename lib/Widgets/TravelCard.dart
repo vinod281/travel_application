@@ -4,8 +4,9 @@ import 'package:travel_app/Models/travelCardModel.dart';
 class TravelCard extends StatelessWidget {
 
   final TCard tCard;
+  final Color clr;
 
-  const TravelCard({super.key,required this.tCard});
+  const TravelCard({super.key,required this.tCard,required this.clr});
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +52,7 @@ class TravelCard extends StatelessWidget {
                     Text(
                       tCard.title,
                       style: TextStyle(
-                        color: Colors.black,
+                        color:clr,
                         fontSize: 22,
                         fontWeight: FontWeight.bold,
                       ),
@@ -60,7 +61,7 @@ class TravelCard extends StatelessWidget {
                     Text(
                       tCard.description,
                       style: TextStyle(
-                        color:Colors.black,
+                        color:clr,
                         fontSize: 14,
                       ),
                     ),
