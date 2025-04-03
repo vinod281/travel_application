@@ -17,7 +17,7 @@ class _SignUpState extends State<SignUp> {
         children: [
           Spacer(),
           Center(
-            child: Image.asset("assests/travel3.png", height: 250,),
+            child: Image.asset("assests/travel 4.png", height: 350,),
           ),
           SizedBox(height: 10),
           Padding(

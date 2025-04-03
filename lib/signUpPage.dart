@@ -19,7 +19,7 @@ class _RegisterState extends State<Register> {
             children: [
               SizedBox(height: 60),
               Center(
-            child: Image.asset("assests/travel3.png", height: 150,),
+            child: Image.asset("assests/travel 4.png", height: 250,),
           ),
               SizedBox(height: 20),
              
@@ -44,7 +44,7 @@ class _RegisterState extends State<Register> {
                   ),
                 ],
               ),
-              SizedBox(height: 70),
+              SizedBox(height: 50),
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
