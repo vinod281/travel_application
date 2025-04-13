@@ -1,6 +1,6 @@
 # 🌍 Traverse — Your Ultimate Travel Companion
 
-TravelMate is a sleek and user-friendly travel app built with React and Tailwind CSS. Whether you're planning a vacation or a business trip, TravelMate helps you discover destinations, track your itinerary, and explore the world with ease.
+TravelMate is a sleek and user-friendly travel app built with React and Tailwind CSS. Whether you're planning a vacation or a business trip, TravelMate helps you discover destinations, track your itinerary, and explore the Sri Lanka with ease.
 
 ---
 
