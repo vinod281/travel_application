@@ -36,10 +36,10 @@ TravelMate is a sleek and user-friendly travel app built with React and Tailwind
 
 ```bash
 # Clone the repo
-git clone https://github.com/your-username/travelmate.git
+git clone https://github.com/vinod281/travel_application.git
 
 # Navigate into the project
-cd travelmate
+cd travel_application
 
 # Install dependencies
 npm install
