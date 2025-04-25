@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:travel_app/Models/travelCardModel.dart';
+import 'package:travel_app/TravelPlanPage.dart';
 import 'package:travel_app/Widgets/PlanCard.dart';
 
 class TravelCard extends StatelessWidget {
@@ -76,7 +77,14 @@ class TravelCard extends StatelessWidget {
                           borderRadius: BorderRadius.circular(20),
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const TravelPlan(),
+                          ),
+                        );
+                      },
                       child: Text("Explore Now"),
                     ),
                   ],
