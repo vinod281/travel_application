@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:travel_app/Models/travelCardModel.dart';
+import 'package:travel_app/Widgets/PlanCard.dart';
 
 class TravelCard extends StatelessWidget {
 

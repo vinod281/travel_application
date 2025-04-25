@@ -294,7 +294,7 @@ class CategoryCard extends StatelessWidget {
   final String title;
   final Color color;
 
-  const CategoryCard({
+  const CategoryCard({super.key, 
     required this.icon,
     required this.title,
     required this.color,
